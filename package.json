@@ -1,6 +1,6 @@
 {
   "name": "firstrpojeck",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Mini games for the console",
   "scripts": {
     "prepublishOnly": "npm run build",
