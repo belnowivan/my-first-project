@@ -1,6 +1,6 @@
 # Проект Brain Games
 
-Установка: sudo npm install -g firstrpojeck
+Установка: npm install -g firstrpojeck
 
   (возможно вам понадобится sudo)
 
