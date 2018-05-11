@@ -1,6 +1,6 @@
 {
   "name": "firstrpojeck",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Mini games for the console",
   "scripts": {
     "eslint": "eslint",
@@ -10,7 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
+    "brain-even": "dist/bin/brain-even.js",
     "brain-games": "dist/bin/brain-games.js"
+
   },
   "files": [
     "dist"
