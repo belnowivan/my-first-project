@@ -10,7 +10,7 @@ const gameProcces = (number, iter = 1, userName) => {
   if (userAnswer === numberCheck) {
     console.log('Correct!');
   } else {
-    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${userName}`);
+    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${numberCheck}'.\nLet's try again, ${userName}`);
   }
   if (iter === 3) {
     return console.log(`Congratulations, ${userName}!`);
