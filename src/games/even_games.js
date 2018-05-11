@@ -17,10 +17,11 @@ const gameProcces = (number, iter = 1, userName) => {
   }
   return gameProcces(numberRandom(), iter + 1, userName);
 };
-const getUserName = () => {
+
+export const getUserName = (f) => {
   const userName = readlineSync.question('May I have you name? ');
   console.log(`Hello, ${userName}!\n`);
-  gameProcces(numberRandom(), 1, userName);
+  f(numberRandom(), 1, userName);
 };
-
-export default getUserName;
+const startEvenGames = () => getUserName(gameProcces);
+export default startEvenGames;
