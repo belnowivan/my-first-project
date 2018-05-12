@@ -1,19 +1,17 @@
-import { startGame, welcomeGame } from '..';
-import { numberRandom, gameStep, askQestionGetAnswer, checkAnswer, gameOver } from '../utils';
+import { startGame, main } from '..';
+import { numberRandom } from '../utils';
 
 const isEven = number => number % 2 === 0;
 
-const gameEvenProcces = (userName, iter = 1) => {
-  const question = numberRandom(1, 100);
-  const userAnswer = askQestionGetAnswer(question);
-  const trueAnswer = isEven(question) ? 'yes' : 'no';
-  if (!checkAnswer(userAnswer, trueAnswer, userName)) { return; }
-  if (gameOver(gameStep, iter, userName)) { return; }
-
-  gameEvenProcces(userName, iter + 1);
+const question = () => numberRandom(1, 100);
+const trueAnswer = (quest) => {
+  if (isEven(quest)) { return 'yes'; }
+  return 'no';
 };
+
+
 const startEvenGames = () => {
-  welcomeGame('Answer "yes" if number even otherwise answer "no"');
-  startGame(gameEvenProcces);
+  const userName = startGame('Answer "yes" if number even otherwise answer "no"');
+  main(userName, question, trueAnswer);
 };
 export default startEvenGames;
