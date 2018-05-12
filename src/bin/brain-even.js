@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import getUserName from '../games/even_games';
-import { welcomeGameEven } from '..';
+import startEvenGames from '../games/even_games';
 
-welcomeGameEven();
-getUserName();
+startEvenGames();

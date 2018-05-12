@@ -1,27 +1,29 @@
 import readlineSync from 'readline-sync';
+import { startGame, welcomeGameEven } from '..';
 
-const numberRandom = () => Math.floor((Math.random() * 100) + 1);
+export const numberRandom = () => Math.floor((Math.random() * 100) + 1);
+const isEven = number => number % 2 === 0;
 
-
-const gameProcces = (number, iter = 1, userName) => {
+const gameEvenProcces = (userName, number = numberRandom(), iter = 1) => {
+  const endGame = 3;
   console.log(`Question: ${number}`);
   const userAnswer = readlineSync.question('Your answer: ');
-  const numberCheck = (number % 2 === 0) ? 'yes' : 'no';
-  if (userAnswer === numberCheck) {
+  const trueAnswer = isEven(number) ? 'yes' : 'no';
+  if (userAnswer === trueAnswer) {
     console.log('Correct!');
   } else {
-    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${numberCheck}'.\nLet's try again, ${userName}`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.\nLet's try again, ${userName}`);
+    return;
   }
-  if (iter === 3) {
-    return console.log(`Congratulations, ${userName}!`);
+  if (iter === endGame) {
+    console.log(`Congratulations, ${userName}!`);
+    return;
   }
-  return gameProcces(numberRandom(), iter + 1, userName);
+  gameEvenProcces(userName, numberRandom(), iter + 1);
 };
 
-export const getUserName = (f) => {
-  const userName = readlineSync.question('May I have you name? ');
-  console.log(`Hello, ${userName}!\n`);
-  f(numberRandom(), 1, userName);
+const startEvenGames = () => {
+  welcomeGameEven();
+  startGame(gameEvenProcces);
 };
-const startEvenGames = () => getUserName(gameProcces);
 export default startEvenGames;
