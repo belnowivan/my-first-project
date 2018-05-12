@@ -1,20 +1,18 @@
 import { cons, car, cdr } from 'hexlet-pairs';
-import readlineSync from 'readline-sync';
-import { startGame, welcomeGameCalc } from '..';
-import { numberRandom, gameStep } from './even_games';
+import { startGame, welcomeGame } from '..';
+import { numberRandom, gameStep, askQestionGetAnswer, checkAnswer } from '../utils';
 
-const makePair = (a, b) => cons(a, b);
 const additionPair = pair => car(pair) + cdr(pair);
 const subtraction = pair => car(pair) - cdr(pair);
 const multiplication = pair => car(pair) * cdr(pair);
 const tostringExpression = (pair, sign) => `${car(pair)} ${sign} ${cdr(pair)}`;
 
-const expressionRandom = () => Math.floor((Math.random() * 3) + 1);
+const expressionRandom = () => numberRandom(1, 3);
 
 const gameProccesCalc = (userName, iter = 1) => {
   let sign;
   let answer;
-  const pairNumbers = makePair(numberRandom(), numberRandom());
+  const pairNumbers = cons(numberRandom(1, 100), numberRandom(1, 100));
   switch (expressionRandom()) {
     case 1:
       answer = String(additionPair(pairNumbers));
@@ -29,14 +27,9 @@ const gameProccesCalc = (userName, iter = 1) => {
       sign = '*';
       break;
   }
-  console.log(`Question: ${tostringExpression(pairNumbers, sign)}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  if (userAnswer === answer) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${userName}`);
-    return;
-  }
+  const userAnswer = askQestionGetAnswer(tostringExpression(pairNumbers, sign));
+  const checkUserAnswer = checkAnswer(userAnswer, answer, userName);
+  if (!checkUserAnswer) { return; }
   if (iter === gameStep) {
     console.log(`Congratulations, ${userName}!`);
     return;
@@ -44,7 +37,7 @@ const gameProccesCalc = (userName, iter = 1) => {
   gameProccesCalc(userName, iter + 1);
 };
 const startGameCalc = () => {
-  welcomeGameCalc();
+  welcomeGame('What is the result of the expression?');
   startGame(gameProccesCalc);
 };
 export default startGameCalc;

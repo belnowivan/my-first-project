@@ -1,29 +1,22 @@
-import readlineSync from 'readline-sync';
-import { startGame, welcomeGameEven } from '..';
+import { startGame, welcomeGame } from '..';
+import { numberRandom, gameStep, askQestionGetAnswer, checkAnswer } from '../utils';
 
-export const numberRandom = () => Math.floor((Math.random() * 100) + 1);
 const isEven = number => number % 2 === 0;
-export const gameStep = 3;
 
-const gameEvenProcces = (userName, number = numberRandom(), iter = 1) => {
-  console.log(`Question: ${number}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  const trueAnswer = isEven(number) ? 'yes' : 'no';
-  if (userAnswer === trueAnswer) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.\nLet's try again, ${userName}`);
-    return;
-  }
+const gameEvenProcces = (userName, iter = 1) => {
+  const question = numberRandom(1, 100);
+  const userAnswer = askQestionGetAnswer(question);
+  const trueAnswer = isEven(question) ? 'yes' : 'no';
+  if (!checkAnswer(userAnswer, trueAnswer, userName)) { return; }
   if (iter === gameStep) {
     console.log(`Congratulations, ${userName}!`);
     return;
   }
-  gameEvenProcces(userName, numberRandom(), iter + 1);
+  gameEvenProcces(userName, iter + 1);
 };
 
 const startEvenGames = () => {
-  welcomeGameEven();
+  welcomeGame('Answer "yes" if number even otherwise answer "no"');
   startGame(gameEvenProcces);
 };
 export default startEvenGames;
