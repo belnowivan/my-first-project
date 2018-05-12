@@ -1,6 +1,6 @@
 import { cons, car, cdr } from 'hexlet-pairs';
 import { startGame, welcomeGame } from '..';
-import { numberRandom, gameStep, askQestionGetAnswer, checkAnswer } from '../utils';
+import { numberRandom, gameStep, askQestionGetAnswer, checkAnswer, gameOver } from '../utils';
 
 const additionPair = pair => car(pair) + cdr(pair);
 const subtraction = pair => car(pair) - cdr(pair);
@@ -30,10 +30,8 @@ const gameProccesCalc = (userName, iter = 1) => {
   const userAnswer = askQestionGetAnswer(tostringExpression(pairNumbers, sign));
   const checkUserAnswer = checkAnswer(userAnswer, answer, userName);
   if (!checkUserAnswer) { return; }
-  if (iter === gameStep) {
-    console.log(`Congratulations, ${userName}!`);
-    return;
-  }
+  if (gameOver(gameStep, iter, userName)) { return; }
+
   gameProccesCalc(userName, iter + 1);
 };
 const startGameCalc = () => {
