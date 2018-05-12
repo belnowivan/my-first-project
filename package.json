@@ -1,6 +1,6 @@
 {
   "name": "firstrpojeck",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Mini games for the console",
   "scripts": {
     "eslint": "eslint",
@@ -10,9 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
+    "brain-calc": "dist/bin/brain-calc.js",
     "brain-even": "dist/bin/brain-even.js",
     "brain-games": "dist/bin/brain-games.js"
-
   },
   "files": [
     "dist"
@@ -20,6 +20,7 @@
   "author": "IvanBelnov",
   "license": "ISC",
   "dependencies": {
+    "hexlet-pairs": "^1.0.7",
     "readline-sync": "^1.4.9"
   },
   "devDependencies": {
