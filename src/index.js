@@ -14,11 +14,11 @@ const getUserNAme = () => {
 
 const gameStep = 3;
 
-const Game = (games, description) => {
+const Game = (DataAnswerQUestion, description) => {
   console.log(`Welcome to Brain Games!\n${description}\n`);
   const userName = getUserNAme();
   for (let i = 0; i < gameStep; i += 1) {
-    const GameStepData = games();
+    const GameStepData = DataAnswerQUestion();
     const question = cdr(GameStepData);
     const userAnswer = askQestionGetAnswer(question);
     const rightAnswer = car(GameStepData);
