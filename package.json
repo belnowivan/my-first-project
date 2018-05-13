@@ -11,7 +11,7 @@
   },
   "bin": {
     "brain-calc": "dist/bin/brain-calc.js",
-    "brain-even": "dist/bin/brain-even.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"
