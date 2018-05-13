@@ -14,18 +14,18 @@ const getUserNAme = () => {
 
 const gameStep = 3;
 
-const Game = (games, ruls) => {
-  console.log(`Welcome to Brain Games!\n${ruls}\n`);
+const Game = (games, description) => {
+  console.log(`Welcome to Brain Games!\n${description}\n`);
   const userName = getUserNAme();
   for (let i = 0; i < gameStep; i += 1) {
     const GameStepData = games();
     const question = cdr(GameStepData);
     const userAnswer = askQestionGetAnswer(question);
-    const AnswerGame = car(GameStepData);
-    if (userAnswer === AnswerGame) {
+    const rightAnswer = car(GameStepData);
+    if (userAnswer === rightAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${AnswerGame}'.\nLet's try again, ${userName}`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}`);
       return;
     }
   }
