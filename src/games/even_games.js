@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import Game from '..';
-import { numberRandom } from '../utils';
+import numberRandom from '../utils';
 
 const isEven = number => number % 2 === 0;
 
@@ -10,7 +10,6 @@ const splitAnswerQestion = () => {
   return cons(answer, question);
 };
 
-const startEvenGames = () => {
-  Game(splitAnswerQestion, 'Answer "yes" if number even otherwise answer "no".');
-};
-export default startEvenGames;
+const rules = 'Answer "yes" if number even otherwise answer "no".';
+const startGame = () => Game(splitAnswerQestion, rules);
+export default startGame;
