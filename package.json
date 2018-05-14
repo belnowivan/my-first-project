@@ -1,6 +1,6 @@
 {
   "name": "firstrpojeck",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "Mini games for the console",
   "scripts": {
     "eslint": "eslint",
