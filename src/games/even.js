@@ -1,11 +1,11 @@
 import { cons } from 'hexlet-pairs';
 import game from '..';
-import numberRandom from '../utils';
+import getRandomNumber from '../utils';
 
 const isEven = number => number % 2 === 0;
 
 const splitAnswerQestion = () => {
-  const question = (numberRandom(1, 100));
+  const question = (getRandomNumber(1, 100));
   const answer = (isEven(question)) ? 'yes' : 'no';
   return cons(answer, question);
 };

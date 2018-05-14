@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import game from '..';
-import numberRandom from '../utils';
+import getRandomNumber from '../utils';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -10,8 +10,8 @@ const dcg = (a, b) => {
 };
 
 const makeGcdAnswerQestion = () => {
-  const a = numberRandom(1, 100);
-  const b = numberRandom(1, 100);
+  const a = getRandomNumber(1, 100);
+  const b = getRandomNumber(1, 100);
   return cons(String(dcg(a, b)), `${a} ${b}`);
 };
 

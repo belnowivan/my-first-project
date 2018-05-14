@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import game from '..';
-import numberRandom from '../utils';
+import getRandomNumber from '../utils';
 
 const description = 'Balance the given number.';
 
@@ -18,7 +18,7 @@ const balance = (number) => {
 };
 
 const makeGcdAnswerQestion = () => {
-  const valueForQestion = numberRandom(1, 9999);
+  const valueForQestion = getRandomNumber(1, 9999);
   return cons(balance(valueForQestion), valueForQestion);
 };
 
