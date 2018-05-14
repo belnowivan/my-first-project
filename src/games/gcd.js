@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import game from '..';
 import numberRandom from '../utils';
 
-const rules = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
 const dcg = (a, b) => {
   if (b === 0) { return Math.abs(a); }
@@ -15,4 +15,4 @@ const makeGcdAnswerQestion = () => {
   return cons(String(dcg(a, b)), `${a} ${b}`);
 };
 
-export default () => game(makeGcdAnswerQestion, rules);
+export default () => game(makeGcdAnswerQestion, description);

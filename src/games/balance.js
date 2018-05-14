@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import game from '..';
 import numberRandom from '../utils';
 
-const rules = 'Balance the given number.';
+const description = 'Balance the given number.';
 
 const reducerFunc = (accumulator, currentValue) => Number(accumulator) + Number(currentValue);
 const sumNumber = num => String(num).split('').reduce(reducerFunc);
@@ -22,4 +22,4 @@ const makeGcdAnswerQestion = () => {
   return cons(balance(valueForQestion), valueForQestion);
 };
 
-export default () => game(makeGcdAnswerQestion, rules);
+export default () => game(makeGcdAnswerQestion, description);

@@ -24,5 +24,5 @@ const randomTask = () => {
   }
 };
 
-const rules = 'What is the result of the expression?';
-export default () => game(randomTask, rules);
+const description = 'What is the result of the expression?';
+export default () => game(randomTask, description);

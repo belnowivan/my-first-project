@@ -10,5 +10,5 @@ const splitAnswerQestion = () => {
   return cons(answer, question);
 };
 
-const rules = 'Answer "yes" if number even otherwise answer "no".';
-export default () => game(splitAnswerQestion, rules);
+const description = 'Answer "yes" if number even otherwise answer "no".';
+export default () => game(splitAnswerQestion, description);
