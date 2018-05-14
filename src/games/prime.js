@@ -3,11 +3,9 @@ import game from '..';
 import getRandomNumber from '../utils';
 
 const isPrime = (num) => {
+  const sqrtNum = Math.sqrt(num);
   if (num < 2) { return false; }
-  let divisor = 2;
-  let sqaerDivisor = divisor ** 2;
-  for (;sqaerDivisor <= num; divisor += 1) {
-    sqaerDivisor = divisor ** 2;
+  for (let divisor = 2; divisor <= sqrtNum; divisor += 1) {
     if (num % divisor === 0) { return false; }
   }
   return true;
