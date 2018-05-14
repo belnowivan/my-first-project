@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import Game from '..';
+import game from '..';
 import numberRandom from '../utils';
 
 const rules = 'Balance the given number.';
@@ -22,5 +22,4 @@ const makeGcdAnswerQestion = () => {
   return cons(balance(valueForQestion), valueForQestion);
 };
 
-const startGame = () => Game(makeGcdAnswerQestion, rules);
-export default startGame;
+export default () => game(makeGcdAnswerQestion, rules);
