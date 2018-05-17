@@ -17,3 +17,11 @@
 ```brain-calc```
 ##### *Определить, четное ли число*:
 ```brain-even```
+#### Пример установки пакета, и использования одной, из игор:
+[![asciicast](https://asciinema.org/a/181163.png)](https://asciinema.org/a/181163)
+#### При разработке использовались:
+* [**Balel**](https://babeljs.io/)
+* [**Eslint**](https://eslint.org/)
+* [**readline-sync**](https://github.com/anseki/readline-sync)
+* [**codeclimate**](https://codeclimate.com/github/belnowivan/project-lvl1-s268)
+* [**ravis-ci**](https://travis-ci.org/belnowivan/project-lvl1-s268)
